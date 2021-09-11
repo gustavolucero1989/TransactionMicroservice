@@ -1,41 +1,40 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.example.demo.dto.TransactionDTO;
-
 @Entity(name = "trasaccion")
 public class Transaction {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-    @Column(name = "usuario_destino")
+	@Column(name = "user_to")
 	private String userTo;
-    @Column(name = "usuario_origen")
+	@Column(name = "user_from")
 	private String userFrom;
-    @Column(name = "monto")
+	@Column(name = "amount")
 	private Double amount;
-	
+	@Column(name = "date")
+	private LocalDateTime date = LocalDateTime.now();
+	@Column(name = "currency")
+	private String currency;
+
 	public Transaction() {
-		
+
 	}
 
-	public Transaction(String userTo, String userFrom, Double amount) {
+	public Transaction(String userTo, String userFrom, Double amount, String currency) {
 		this.userTo = userTo;
 		this.userFrom = userFrom;
 		this.amount = amount;
-	}
-	
-	public Transaction (TransactionDTO transactionDTO) {
-		this.userFrom = transactionDTO.getUserFrom();
-		this.userTo = transactionDTO.getUserTo();
-		this.amount = transactionDTO.getAmount();
+		this.currency = currency;
 	}
 
 	public String getUserTo() {
@@ -61,6 +60,12 @@ public class Transaction {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-	
-	
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 }

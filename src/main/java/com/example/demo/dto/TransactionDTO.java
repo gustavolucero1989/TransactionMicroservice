@@ -1,27 +1,21 @@
 package com.example.demo.dto;
 
-import com.example.demo.entity.Transaction;
-
 public class TransactionDTO {
-	
+
 	private String userTo;
 	private String userFrom;
 	private Double amount;
-	
+	private String currency;
+
 	public TransactionDTO() {
-		
+
 	}
 
-	public TransactionDTO(String userTo, String userFrom, Double amount) {
+	public TransactionDTO(String userTo, String userFrom, Double amount, String currency) {
 		this.userTo = userTo;
 		this.userFrom = userFrom;
 		this.amount = amount;
-	}
-	
-	public TransactionDTO (Transaction transaction) {
-		this.userFrom = transaction.getUserFrom();
-		this.userTo = transaction.getUserTo();
-		this.amount = transaction.getAmount();
+		this.currency = currency;
 	}
 
 	public String getUserTo() {
@@ -47,5 +41,13 @@ public class TransactionDTO {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-	
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
 }

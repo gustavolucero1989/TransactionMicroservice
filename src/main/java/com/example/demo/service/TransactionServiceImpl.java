@@ -12,17 +12,11 @@ public class TransactionServiceImpl implements TransactionService{
 	
 	@Autowired
 	TransactionRepository transactionRepository;
+	@Autowired
+	MapperService mapper;
 
 	public Transaction postTransaction(TransactionDTO transactionDTO) {
-	 return transactionRepository.save(new Transaction(transactionDTO));	
-	}
-
-	public TransactionRepository getTransactionRepository() {
-		return transactionRepository;
-	}
-
-	public void setTransactionRepository(TransactionRepository transactionRepository) {
-		this.transactionRepository = transactionRepository;
+	 return transactionRepository.save(mapper.transactioDTOToEntity(transactionDTO));	
 	}
 
 }
