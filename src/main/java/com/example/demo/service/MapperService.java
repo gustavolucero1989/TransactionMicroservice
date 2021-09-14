@@ -4,6 +4,6 @@ import com.example.demo.dto.TransactionDTO;
 import com.example.demo.entity.Transaction;
 
 public interface MapperService {
-	public TransactionDTO trasactionToDTO(Transaction transaction);
-	public Transaction transactioDTOToEntity(TransactionDTO transactionDTO);
+	public TransactionDTO toDTO(Transaction transaction);
+	public Transaction toEntity(TransactionDTO transactionDTO);
 }
