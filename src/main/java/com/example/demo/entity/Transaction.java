@@ -1,66 +1,39 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.example.demo.dto.TransactionDTO;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Data
+@Builder
 @Entity(name = "trasaccion")
 public class Transaction {
-	
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private Long id;
 
-    @Column(name = "usuario_destino")
+	@Column(name = "user_to")
 	private String userTo;
-    @Column(name = "usuario_origen")
+	@Column(name = "user_from")
 	private String userFrom;
-    @Column(name = "monto")
+	@Column(name = "amount")
 	private Double amount;
-	
-	public Transaction() {
-		
-	}
+	@Column(name = "date")
+	private LocalDateTime date;
+	@Column(name = "currency")
+	private String currency;
 
-	public Transaction(String userTo, String userFrom, Double amount) {
-		this.userTo = userTo;
-		this.userFrom = userFrom;
-		this.amount = amount;
-	}
-	
-	public Transaction (TransactionDTO transactionDTO) {
-		this.userFrom = transactionDTO.getUserFrom();
-		this.userTo = transactionDTO.getUserTo();
-		this.amount = transactionDTO.getAmount();
-	}
-
-	public String getUserTo() {
-		return userTo;
-	}
-
-	public void setUserTo(String userTo) {
-		this.userTo = userTo;
-	}
-
-	public String getUserFrom() {
-		return userFrom;
-	}
-
-	public void setUserFrom(String userFrom) {
-		this.userFrom = userFrom;
-	}
-
-	public Double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-	
-	
 }

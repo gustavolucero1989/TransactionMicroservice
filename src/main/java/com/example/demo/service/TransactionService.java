@@ -4,5 +4,5 @@ import com.example.demo.dto.TransactionDTO;
 import com.example.demo.entity.Transaction;
 
 public interface TransactionService {
-	public Transaction postTransaction(TransactionDTO transactionDTO);
+	public Transaction postTransaction(TransactionDTO transactionDTO)throws Exception;
 }
