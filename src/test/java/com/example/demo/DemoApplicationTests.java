@@ -16,15 +16,6 @@ class DemoApplicationTests {
 	private TrasactionController trasactionController;
 
 	@Test
-<<<<<<< HEAD
-	public void postTransaction() {
-		// Parte 1
-		TransactionDTO transactionDTO = new TransactionDTO();
-		transactionDTO.setAmount(3000.0);
-		transactionDTO.setUserFrom("Usuario1");
-		transactionDTO.setUserTo("Usuario3");
-		transactionDTO.setCurrency("BR");
-=======
 	public void postTransaction() throws Exception {
 		// Parte 1
 		TransactionDTO transactionDTO = TransactionDTO.builder()
@@ -33,7 +24,6 @@ class DemoApplicationTests {
 		.userTo("Usuario3")
 		.currency("BR")
 		.build() ;
->>>>>>> feature/refactor-01
 
 		// Parte 2
 		ResponseEntity<ResponseDTO> response = trasactionController.postTransaction(transactionDTO);
